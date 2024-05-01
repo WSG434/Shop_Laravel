@@ -14,8 +14,7 @@
 
 ## ⚡ Quick setup
 
-1. php artisan storage:link
-2. php artisan migrate
+- php artisan shop:install
 
 [//]: # (1. Скачать проект `git clone https://github.com/WSG434/LaravelGallery.git`)
 [//]: # (2. Скопировать и запустить docker команды в терминале:)
