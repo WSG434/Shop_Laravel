@@ -1,5 +1,7 @@
 <?php
 
+use App\Providers\TestingServiceProvider;
+use App\Providers\ViewServiceProvider;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
@@ -170,7 +172,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
 
-        \App\Providers\TestingServiceProvider::class,
+        ViewServiceProvider::class,
+        TestingServiceProvider::class,
     ])->toArray(),
 
     /*
