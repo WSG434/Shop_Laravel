@@ -3,7 +3,6 @@
 @section('title', 'Восстановление пароля')
 
 @section('content')
-    @dump($errors)
 
     <x-forms.auth-forms title="Восстановление пароля" action="{{route('password.update')}}" method="POST">
         @csrf
