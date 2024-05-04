@@ -1,10 +1,10 @@
 <?php
 
-use App\Logging\Telegram\TelegramLoggerFactory;
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
 use Monolog\Processor\PsrLogMessageProcessor;
+use Support\Logging\Telegram\TelegramLoggerFactory;
 
 return [
 

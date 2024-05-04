@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Support\Testing\FakerImageProvider;
 use Faker\Factory;
 use Faker\Generator;
 use Illuminate\Support\ServiceProvider;
+use Support\FakerImageProvider;
 
 class TestingServiceProvider extends ServiceProvider
 {

@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <x-forms.auth-forms title="Восстановление пароля" action="{{route('password.update')}}" method="POST">
+    <x-forms.auth-forms title="Восстановление пароля" action="{{route('reset.handle')}}" method="POST">
         @csrf
 
         <input type="hidden" name="token" value="{{ $token }}">
@@ -54,7 +54,7 @@
 
 
         <x-forms.primary-button>
-            Восстановить пароль
+            Применить новый пароль
         </x-forms.primary-button>
 
         <x-slot:socialAuth></x-slot:socialAuth>

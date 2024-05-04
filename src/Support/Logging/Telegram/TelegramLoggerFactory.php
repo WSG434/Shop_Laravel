@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Logging\Telegram;
+namespace Support\Logging\Telegram;
 
 use Monolog\Logger;
 

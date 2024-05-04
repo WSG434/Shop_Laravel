@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Support\Testing;
+namespace Support;
 
 use Faker\Provider\Base;
 use Illuminate\Support\Facades\Storage;
