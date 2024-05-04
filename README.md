@@ -8,13 +8,15 @@
 
 - 1
 
-## 📚 Что интересного в проекте
+## 📚 Что интересного на проекте
 
 - 1 
 
 ## ⚡ Quick setup
 
+- composer install
 - php artisan shop:install
+- make .env and .env.testing from .env.example
 
 [//]: # (1. Скачать проект `git clone https://github.com/WSG434/LaravelGallery.git`)
 [//]: # (2. Скопировать и запустить docker команды в терминале:)
