@@ -36,7 +36,7 @@ class NewUserNotification extends Notification implements ShouldQueue
     {
         return (new MailMessage)
                     ->line('Добро пожаловать!')
-                    ->action('Вернуться', url('/'));
+                    ->action('Вернуться на сайт', url('/'));
     }
 
     /**
