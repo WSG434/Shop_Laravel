@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\SignUpController;
 use App\Http\Controllers\Auth\SocialAuthController;
 use Illuminate\Support\Facades\Route;
 
+
 Route::controller(SignInController::class)->group(function (){
     Route::get('/login','page')->name('login');
     Route::post('/login','handle')
@@ -49,5 +50,6 @@ Route::controller(SocialAuthController::class)->group(function (){
     Route::get('/auth/socialite/{driver}/callback', 'callback')
         ->name('socialite.callback');
 });
+
 
 
