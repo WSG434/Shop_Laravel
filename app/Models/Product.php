@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Pipeline\Pipeline;
 use Laravel\Scout\Attributes\SearchUsingFullText;
 use Laravel\Scout\Attributes\SearchUsingPrefix;
 use Laravel\Scout\Searchable;
@@ -37,9 +38,11 @@ class Product extends Model
 
     public function scopeFiltered(Builder $query)
     {
-        foreach (filters() as $filter){
-            $query = $filter->apply($query);
-        }
+
+        return app(Pipeline::class)
+            ->send($query)
+            ->through(filters())
+            ->thenReturn();
     }
 
     public function scopeSorted(Builder $query)

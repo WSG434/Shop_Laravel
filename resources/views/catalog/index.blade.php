@@ -35,30 +35,12 @@
                 <!-- Filters -->
                 <aside class="basis-2/5 xl:basis-1/4">
                     <form action="{{ route('catalog', $category) }}" class="overflow-auto max-h-[320px] lg:max-h-[100%] space-y-10 p-6 2xl:p-8 rounded-2xl bg-card">
-
+                        <input type="hidden" name="sort" value="{{ request('sort') }}">
                         @foreach(filters() as $filter)
                             {!! $filter !!}
                         @endforeach
 
-                        <!-- Filter item -->
-                        <div>
-                            <h5 class="mb-4 text-sm 2xl:text-md font-bold">Бренд</h5>
 
-                            @foreach($brands as $brand)
-                                <div class="form-checkbox">
-                                    <input name="filters[brands][{{ $brand->id }}]"
-                                           type="checkbox"
-                                           value="{{ $brand->id }}"
-                                           @checked(request('filters.brands.'.$brand->id))
-                                           id="filters-item-{{ $brand->id }}"
-                                    >
-
-                                    <label for="filters-item-{{ $brand->id }}" class="form-checkbox-label">
-                                        {{ $brand->title }}
-                                    </label>
-                                </div>
-                            @endforeach
-                        </div>
                         <!-- Filter item -->
                         <div>
                             <h5 class="mb-4 text-sm 2xl:text-md font-bold">Цвет</h5>
