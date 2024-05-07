@@ -2,11 +2,7 @@
     <nav>
         <ul class="flex flex-wrap items-center justify-center gap-3">
             {{-- Previous Page Link --}}
-            @if ($paginator->onFirstPage())
-                <li>
-                    <a class="block p3 text-white hover:text-pink text-sm font-black leading-none" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</a>
-                </li>
-            @else
+            @if (!$paginator->onFirstPage())
                 <li>
                     <a class="block p3 text-white hover:text-pink text-sm font-black leading-none" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</a>
                 </li>
