@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\CatalogController;
 use App\Http\Middleware\CatalogViewMiddleware;
-use Domain\Catalog\Controllers\CatalogController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(CatalogController::class)->group(function (){
