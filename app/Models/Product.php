@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Jobs\ProductJsonProperties;
 use Domain\Catalog\Facades\Sorter;
 use Domain\Catalog\Models\Brand;
 use Domain\Catalog\Models\Category;
@@ -11,9 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Pipeline\Pipeline;
-use Laravel\Scout\Attributes\SearchUsingFullText;
-use Laravel\Scout\Attributes\SearchUsingPrefix;
-use Laravel\Scout\Searchable;
+use Illuminate\Queue\Queue;
 use Support\Casts\PriceCast;
 use Support\Traits\Models\HasSlug;
 
@@ -30,12 +29,26 @@ class Product extends Model
         'thumbnail',
         'on_home_page',
         'sorting',
-        'text'
+        'text',
+        'json_properties'
     ];
 
     protected $casts = [
-        'price' => PriceCast::class
+        'price' => PriceCast::class,
+        'json_properties' => 'array'
     ];
+
+    protected static function boot(): void
+    {
+        parent::boot();
+
+        static::created(function (Product $product){
+
+            ProductJsonProperties::dispatch($product)
+                ->delay(now()->addSeconds(2));
+
+        });
+    }
 
     public function scopeFiltered(Builder $query)
     {
