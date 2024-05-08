@@ -28,4 +28,5 @@
             </div>
         </div>
     </div>
-</div><!-- /.product-card -->
+</div>
+<!-- /.product-card -->
