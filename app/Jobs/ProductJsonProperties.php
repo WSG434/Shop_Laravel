@@ -21,7 +21,6 @@ class ProductJsonProperties implements ShouldQueue
         public Product $product
     )
     {
-//        logger('ProductJsonProperties constructor is called');
     }
 
     public function handle(): void
