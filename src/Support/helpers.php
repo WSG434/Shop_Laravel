@@ -2,7 +2,15 @@
 
 use Domain\Catalog\Filters\FilterManager;
 use Domain\Catalog\Models\Category;
+use Domain\Catalog\Sorters\Sorter;
 use Support\Flash\Flash;
+
+if(!function_exists('sorter')){
+    function sorter(): Sorter
+    {
+        return app(Sorter::class);
+    }
+}
 
 if (!function_exists('filters')){
     function filters(): array
