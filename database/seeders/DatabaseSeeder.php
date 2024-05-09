@@ -7,6 +7,7 @@ use Database\Factories\BrandFactory;
 use Database\Factories\CategoryFactory;
 use Database\Factories\OptionFactory;
 use Database\Factories\OptionValueFactory;
+use Database\Factories\ProductFactory;
 use Database\Factories\PropertyFactory;
 use Domain\Product\Models\Product;
 use Illuminate\Database\Seeder;
@@ -28,7 +29,7 @@ class DatabaseSeeder extends Seeder
 
         CategoryFactory::new()->count(10)
             ->has(
-                PropertyFactory::new()
+                ProductFactory::new()
                     ->count(10)
                     ->hasAttached($optionValues)
                     ->hasAttached($properties, function(){

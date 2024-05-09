@@ -1,5 +1,6 @@
 <?php
 
+use Domain\Cart\CartManager;
 use Domain\Catalog\Filters\FilterManager;
 use Domain\Catalog\Models\Category;
 use Domain\Catalog\Sorters\Sorter;
@@ -42,4 +43,12 @@ if (!function_exists('filter_url')){
            'category' => $category
         ]);
     }
+
+if(!function_exists('cart')){
+    function cart(): CartManager
+    {
+        return app(CartManager::class);
+    }
+}
+
 }
