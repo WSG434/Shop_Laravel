@@ -46,6 +46,13 @@ final class CartManager
         return $data;
     }
 
+    public function updateStorageId(string $old, string $current): void
+    {
+        Cart::query()
+            ->where('storage_id', $old)
+            ->update($this->storageData($current));
+    }
+
     private function stringedOptionValues (array $optionValues = []){
         sort($optionValues);
         return implode(';', $optionValues);

@@ -17,6 +17,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Laravel\Socialite\Facades\Socialite;
+use Support\SessionRegenerator;
 
 class SignInController extends Controller
 {
@@ -33,18 +34,14 @@ class SignInController extends Controller
             ])->onlyInput('email');
         }
 
-        $request->session()->regenerate();
+        SessionRegenerator::run();
 
         return redirect()->intended(route('home'));
     }
 
     public function logOut(Request $request): RedirectResponse
     {
-        auth()->logout();
-
-        request()->session()->invalidate();
-
-        request()->session()->regenerateToken();
+        SessionRegenerator::run(fn() => auth()->logout());
 
         return redirect()
             ->route('home');
