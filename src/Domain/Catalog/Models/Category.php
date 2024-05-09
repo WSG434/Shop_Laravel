@@ -2,10 +2,9 @@
 
 namespace Domain\Catalog\Models;
 
-use App\Models\Product;
-use Domain\Catalog\Collections\CategoryCollection;
+use Domain\Product\Collections\OptionValueCollection;
 use Domain\Catalog\QueryBuilders\CategoryQueryBuilder;
-use Illuminate\Contracts\Database\Eloquent\Builder;
+use Domain\Product\Models\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -26,9 +25,9 @@ class Category extends Model
       'sorting',
     ];
 
-    public function newCollection(array $models = []): CategoryCollection
+    public function newCollection(array $models = []): OptionValueCollection
     {
-        return new CategoryCollection($models);
+        return new OptionValueCollection($models);
     }
 
     public function newEloquentBuilder($query): CategoryQueryBuilder
