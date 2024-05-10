@@ -20,4 +20,9 @@ class Cart extends Model
     {
         return $this->hasMany(CartItem::class);
     }
+
+    public function prunable()
+    {
+        return static::where('created_at', '<=', now()->subDay());
+    }
 }
