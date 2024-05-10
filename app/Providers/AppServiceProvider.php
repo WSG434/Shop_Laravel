@@ -8,6 +8,7 @@ use Illuminate\Database\Connection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 use Services\Telegram\TelegramBotApi;
 use Services\Telegram\TelegramBotApiContract;
 
@@ -50,5 +51,9 @@ class AppServiceProvider extends ServiceProvider
                 }
             );
         }
+
+        Str::macro('phoneNumber', function ($string) {
+            return preg_replace('/^8{1}/', '7', preg_replace('/[^0-9]/', '', $string));
+        });
     }
 }

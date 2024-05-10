@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrderFormRequest;
 use Domain\Order\Models\DeliveryType;
 use Domain\Order\Models\PaymentMethod;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -23,7 +25,7 @@ class OrderController extends Controller
         ]);
     }
 
-    public function handle(): \Illuminate\Http\RedirectResponse
+    public function handle(OrderFormRequest $request): RedirectResponse
     {
         return redirect()
             ->route('home');

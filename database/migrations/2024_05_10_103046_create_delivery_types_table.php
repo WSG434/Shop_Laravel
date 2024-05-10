@@ -14,7 +14,7 @@ return new class extends Migration
 
             $table->string('title');
 
-            $table->unsignedBigInteger('price')
+            $table->unsignedInteger('price')
                 ->default(0);
 
             $table->boolean('with_address')
