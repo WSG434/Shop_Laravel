@@ -210,10 +210,10 @@
                                                name="payment_method_id"
                                                id="payment-method-{{ $payment->id }}"
                                                value="{{ $payment->id }}"
-                                               @checked($loop->first || old('payment_method_id') === $paymant->id)
+                                               @checked($loop->first || old('payment_method_id') === $payment->id)
                                         >
 
-                                        <label for="payment-method-{{ $paymant->id }}" class="form-radio-label">
+                                        <label for="payment-method-{{ $payment->id }}" class="form-radio-label">
                                             {{ $payment->title }}
                                         </label>
                                     </div>
