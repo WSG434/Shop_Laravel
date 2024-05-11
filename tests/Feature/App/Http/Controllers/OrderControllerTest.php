@@ -17,7 +17,7 @@ final class OrderControllerTest extends TestCase
      */
     public function it_mytest(): void
     {
-        dd(OrderStatuses::cases());
+//        dd(OrderStatuses::cases());
 //        dd(array_column(OrderStatuses::cases(), 'value'));
     }
 
