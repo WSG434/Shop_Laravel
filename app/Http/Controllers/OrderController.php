@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OrderFormRequest;
-use Database\Factories\BrandFactory;
 use Domain\Order\Actions\NewOrderAction;
+use Domain\Order\DTOs\CustomerOrderDTO;
+use Domain\Order\DTOs\OrderDTO;
 use Domain\Order\Models\DeliveryType;
+use Domain\Order\Models\OrderCustomer;
 use Domain\Order\Models\PaymentMethod;
 use Domain\Order\Processes\AssignCustomer;
 use Domain\Order\Processes\AssignProducts;
@@ -35,11 +37,15 @@ class OrderController extends Controller
 
     public function handle(OrderFormRequest $request, NewOrderAction $action): RedirectResponse
     {
-        $order = $action($request);
+        $order = $action(
+            OrderDTO::make(...$request->only(['payment_method_id', 'delivery_type_id', 'password'])),
+            CustomerOrderDTO::fromArray($request->get('customer')),
+            $request->boolean('create_account')
+        );
 
         (new OrderProcess($order))->processes([
             new CheckProductQuantities(),
-            new AssignCustomer(request('customer')),
+            new AssignCustomer(CustomerOrderDTO::fromArray($request->get('customer'))),
             new AssignProducts(),
             new ChangeStateToPending(),
             new DecreaseProductQuantities(),
