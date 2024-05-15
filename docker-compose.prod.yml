@@ -33,11 +33,19 @@ services:
       - node
     networks:
       - my-net
+    depends_on:
+      - mysql
+
 
   mysql:
     image: mysql:8.0
     volumes:
     - ./DBDocker:/var/lib/mysql
+    environment:
+      - "MYSQL_ROOT_PASSWORD=secret"
+      - "MYSQL_USER=test"
+      - "MYSQL_PASSWORD=12345678"
+      - "MYSQL_DATABASE=cutcode_shop"
     ports:
       - "8101:3306"
     networks:
