@@ -1,5 +1,5 @@
 <h1 align="center">Интернет магазин 🛒️ </h1>
-  <h3 align="center">Проект в рамках повышения компетентности</h3>
+  <h3 align="center">Демо проект</h3>
 
 ![Shop_image1](https://github.com/WSG434/Shop/blob/master/resources/images/github/1.jpg?raw=true&#41;)
 ![Shop_image2](https://github.com/WSG434/Shop/blob/master/resources/images/github/2.jpg?raw=true&#41;)
